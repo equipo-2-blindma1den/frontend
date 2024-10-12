@@ -1,5 +1,5 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { Button } from "@/components/ui/button"
 </script>
 
 <template>
@@ -13,4 +13,7 @@ import HelloWorld from './components/HelloWorld.vue'
   </div>
   <HelloWorld msg="Vite + Vue" /> -->
   <router-view></router-view>
+  <div>
+    <Button>Click me</Button>
+  </div>
 </template>
