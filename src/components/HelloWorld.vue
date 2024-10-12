@@ -9,6 +9,9 @@ const count = ref(0)
 </script>
 
 <template>
+  <div class="bg-blue-500 text-white p-4">
+    ¡Hola, Tailwind!
+  </div>
   <h1>{{ msg }}</h1>
 
   <div class="card">
