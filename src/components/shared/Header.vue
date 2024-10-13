@@ -17,12 +17,12 @@ import {
           <NavigationMenuList>
             <NavigationMenuItem>
 
-              <NavigationMenuLink class="flex cursor-pointer">
+              <RouterLink  class="flex cursor-pointer" to="/app/profile">
                 <Avatar>
                   <AvatarImage src="https://github.com/shadcn.png" />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-              </NavigationMenuLink>
+              </RouterLink>
 
             </NavigationMenuItem>
           </NavigationMenuList>
