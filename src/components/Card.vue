@@ -7,8 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-
+import Dialog from "./Dialog.vue"
 const contentText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt exercitationem omnis deleniti dignissimos cum mollitia nemo quas. Error sint magni dicta repudiandae blanditiis culpa voluptate consectetur veniam nihil ipsa."
 </script>
 
@@ -25,7 +24,11 @@ const contentText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Od
       </p>
     </CardContent>
     <CardFooter>
-      <Button>Más información</Button>
+      <Dialog
+        image="https://github.com/shadcn.png"
+        title="Donaciones Huracán Milton"
+        description="Aporta tu grano de arena a la donación por las víctimas"
+      />
     </CardFooter>
   </Card>
 </template>
