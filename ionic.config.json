@@ -1,0 +1,7 @@
+{
+  "name": "voluntariados",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
