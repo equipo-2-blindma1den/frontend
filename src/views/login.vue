@@ -70,7 +70,7 @@
     <Form ref="formRef">
         <FormField name="username" v-slot="{ componentField }">
             <FormItem>
-                <FormLabel>Usuario</FormLabel>
+                <FormLabel>Correo</FormLabel>
                 <FormControl>
                     <Input v-bind="componentField" type="text" :disabled="isLoading"/>
                 </FormControl>

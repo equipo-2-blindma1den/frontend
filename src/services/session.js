@@ -33,7 +33,6 @@ const login = async ({username, password}) => {
 }
 
 const register = async ({username, password, city}) => {
-    city = 'madrid'
     try {
         const response = await fetch(`${GlobalVars.API_URL}signup`, {
             method: 'POST',
