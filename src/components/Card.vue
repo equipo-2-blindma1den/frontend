@@ -24,18 +24,18 @@ const contentText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Od
 </script>
 
 <template>
-  <Card>
+  <Card class="flex flex-col">
     <CardHeader>
       <img class="max-w-full h-auto object-cover aspect-video" :src="imageSrc" alt="avatar" />
       <CardTitle>{{title}}</CardTitle>
-      <CardDescription>{{ description }}</CardDescription>
+      <CardDescription>{{ description.length > 40 ? description.substring(0, 40) + "..." : description }}</CardDescription>
     </CardHeader>
     <CardContent>
       <p>
         {{ contentText.substring(0, 100) + "..." }}
       </p>
     </CardContent>
-    <CardFooter>
+    <CardFooter class="pb-6">
       <Dialog
         :event="props.event"
         :contentText="contentText"
