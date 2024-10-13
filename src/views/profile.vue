@@ -147,7 +147,7 @@
             </FormField>
             <FormField name="username" v-slot="{ componentField }">
                 <FormItem class="formField sm:w-full">
-                    <FormLabel>Usuario * </FormLabel>
+                    <FormLabel>Correo * </FormLabel>
                     <FormControl>
                         <Input 
                             class="border-2 border-[#c1b8b1] focus:outline-none  focus:ring-[#c1b8b1] input"

@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id_evento": 1,
+      "titulo": "Recolección de alimentos",
+      "descripcion": "Evento para recolectar alimentos para comunidades necesitadas",
+      "imagen": null,
+      "fecha": "01/12/24",
+      "nombre_org": "Fundación Ayuda",
+      "direccion": "Av. México, Del Carmen, Coyoacán, Ciudad de México, México"
+    },
+    {
+      "id_evento": 2,
+      "titulo": "Donaciones Huracán Milton",
+      "descripcion": "Evento para recolectar alimentos test1",
+      "imagen": null,
+      "fecha": "13/10/24",
+      "nombre_org": "Fundación Ayuda",
+      "direccion": "Av. México, Del Carmen, Coyoacán, Ciudad de México, México"
+    }
+  ]
+}

@@ -8,25 +8,36 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import Dialog from "../shared/Dialog.vue"
-const contentText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt exercitationem omnis deleniti dignissimos cum mollitia nemo quas. Error sint magni dicta repudiandae blanditiis culpa voluptate consectetur veniam nihil ipsa."
+
+const props = defineProps({
+  event: { type: Object, required: true }
+})
+
+const { 
+  titulo: title,
+  descripcion: description,
+  imagen: image
+} = props.event;
+
+const imageSrc = image || "https://github.com/shadcn.png"
+
 </script>
 
 <template>
   <Card class="card">
     <CardHeader class="header">
       <img class="max-w-full h-auto object-cover aspect-video" src="https://github.com/shadcn.png" alt="avatar" />
-      <CardTitle class="title" >Donaciones Huracán Milton</CardTitle>
+      <CardTitle class="title" >{{title}}</CardTitle>
     </CardHeader>
     <CardContent>
       <p class="text-sm text-muted-foreground">
-        {{ contentText.substring(0, 100) + "..." }}
+        {{ description?.substring(0, 100) + "..." }}
       </p>
     </CardContent>
     <CardFooter>
       <Dialog
-        image="https://github.com/shadcn.png"
-        title="Donaciones Huracán Milton"
-        description="Aporta tu grano de arena a la donación por las víctimas"
+        :event="props.event"
+        :contentText="contentText"
       />
     </CardFooter>
   </Card>
