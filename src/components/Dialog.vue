@@ -12,13 +12,22 @@ import { Button } from "@/components/ui/button"
 import Calendar from "@/components/icons/Calendar.vue"
 import Map from "@/components/icons/Map.vue"
 import Target from "@/components/icons/Target.vue"
+import parseDate from "@/utils/parseDate"
 
-defineProps({
-  image: { type: String },
-  title: { type: String },
-  description: { type: String },
+const props = defineProps({
+  event: { type: Object, required: true },
   contentText: { type: String },
 })
+
+const { 
+  titulo: title,
+  descripcion: description,
+  imagen: image,
+  fecha: date,
+  nombre_org: organization,
+} = props.event
+
+const imageSrc = image || "https://github.com/shadcn.png"
 
 </script>
 
@@ -31,18 +40,18 @@ defineProps({
       <DialogHeader>
           <img
             class="max-w-full h-auto object-cover aspect-video"
-            :src="image"
+            :src="imageSrc"
             alt="avatar"
           />
           <DialogTitle>{{ title }}</DialogTitle>
           <DialogDescription>{{ description }}</DialogDescription>
       </DialogHeader>
 
-      <p>{{ contentText }}</p>
+      <p>{{ props.contentText }}</p>
 
       <div class="flex items-center gap-2">
         <Calendar />
-        <span>20 de octubre</span>
+        <span>{{ parseDate(date) }}</span>
       </div>
       <div class="flex items-center gap-2">
         <Map />
