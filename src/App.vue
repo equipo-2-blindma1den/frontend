@@ -1,4 +1,5 @@
 <script setup>
+// import { Button } from "./components/ui/button"
 import { Button } from "@/components/ui/button"
 </script>
 
@@ -13,7 +14,7 @@ import { Button } from "@/components/ui/button"
   </div>
   <HelloWorld msg="Vite + Vue" /> -->
   <router-view></router-view>
-  <div>
+  <!-- <div>
     <Button>Click me</Button>
-  </div>
+  </div> -->
 </template>
