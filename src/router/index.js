@@ -1,11 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import login from '../views/login.vue';
-// import Login from '../views/Login.vue';
+import home from '../views/home.vue';
+import register from '../views/complete-register.vue';
+import profile from '../views/profile.vue';
+
 
 const routes = [
-  { path: '/', component: login },
+  { path: '/',  redirect: '/login'},
   { path: '/login', component: login },
-  { path: '/app', component: login },
+  { 
+    path: '/app',
+    redirect: '/app/home',
+    children: [
+      { path: 'home', component: home },
+      { path: 'profile', component: profile },
+      { path: 'register', component: register },
+    ],
+  },
 ];
 
 const router = createRouter({

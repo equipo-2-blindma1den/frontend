@@ -1,48 +1,63 @@
 <script setup lang="js">
-import { h } from 'vue'
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/zod'
-import * as z from 'zod'
-import { Button } from '@/components/ui/button';
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import Alert from '@/components/shared/alert.vue';
-import { ref } from 'vue';
-import { SessionService } from '@/services/session';
-import { Loader2 } from 'lucide-vue-next';
-import { useRouter } from 'vue-router';
+    import { h } from 'vue'
+    import { useForm } from 'vee-validate'
+    import { toTypedSchema } from '@vee-validate/zod'
+    import * as z from 'zod'
+    import { Button } from '@/components/ui/button';
+    import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form';
+    import { Input } from '@/components/ui/input';
+    import Alert from '@/components/shared/alert.vue';
+    import { ref } from 'vue';
+    import { SessionService } from '@/services/session';
+    import { Loader2 } from 'lucide-vue-next';
+    import { useRouter } from 'vue-router';
+    import { computed } from 'vue';
 
-let isRegister = ref(false);
-let isLoading = ref(false);
-const router = useRouter();
-const formSchema = toTypedSchema(z.object({
-    username: z.string({required_error: "Campo obligatorio"})
-        .email({ message: 'Ingresa un correo válido' }),
-    password: z.string({required_error: "Campo obligatorio"})
-        .min(8, {message: 'Min. 8 caracteres'}),
-}))
-const { handleSubmit, resetForm } = useForm({
-  validationSchema: formSchema,
-})
+    let isRegister = ref(false);
+    let isLoading = ref(false);
+    const router = useRouter();
+    const baseSchema = z.object({
+        username: z.string({ required_error: "Campo obligatorio" })
+            .email({ message: 'Ingresa un correo válido' }),
+        password: z.string({ required_error: "Campo obligatorio" })
+            .min(8, { message: 'Min. 8 caracteres' }),
+    });
+    
+    const createFormSchema = (includeCity) => {
+        if (includeCity) {
+            return baseSchema.extend({
+                city: z.string({ required_error: "Campo obligatorio" })
+            });
+        }
+        return baseSchema;
+    };
 
-const onSubmit = handleSubmit(async (values) => {
-    isLoading.value = true; // Mostrar el spinner
-    try {
-        if(isRegister.value) await SessionService.register(values);
-        else await SessionService.login(values);
-    } catch (error) {
-        console.error('Error en el inicio de sesión:', error);
-    } finally {
-        router.push('/app');
-        isLoading.value = false; // Ocultar el spinner
-    }
-    // SessionService.login(values);
-});
+    const formSchema = computed(() => toTypedSchema(createFormSchema(isRegister.value)));
+    
+    const { handleSubmit, resetForm } = useForm({
+        validationSchema: formSchema,
+    })
 
-const toggleRegister = () => {
-    isRegister.value = !isRegister.value;
-    resetForm();
-};
+    const onSubmit = handleSubmit(async (values) => {
+        isLoading.value = true;
+        try {
+            if(isRegister.value) {
+                await SessionService.register(values);
+                router.push('/app/register');
+            }
+            else {
+                await SessionService.login({...values});
+                router.push('/app');
+            }
+        } finally {
+            isLoading.value = false; 
+        }
+    });
+
+    const toggleRegister = () => {
+        isRegister.value = !isRegister.value;
+        resetForm();
+    };
 
 </script>
 
