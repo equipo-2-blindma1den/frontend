@@ -28,6 +28,7 @@ const contentText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Od
         image="https://github.com/shadcn.png"
         title="Donaciones Huracán Milton"
         description="Aporta tu grano de arena a la donación por las víctimas"
+        contentText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt exercitationem omnis deleniti dignissimos cum mollitia nemo quas. Error sint magni dicta repudiandae blanditiis culpa voluptate consectetur veniam nihil ipsa."
       />
     </CardFooter>
   </Card>
