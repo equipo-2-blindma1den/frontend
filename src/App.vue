@@ -1,8 +1,17 @@
 <script setup>
+import { onMounted, ref } from "vue"
 import Header from "./components/Header.vue"
 import Layout from "./components/Layout.vue"
 import Card from "./components/Card.vue"
-import events from "./mocks/events.json"
+import { EventsService } from "./services/events.js"
+
+const events = ref([])
+
+onMounted(async () => {
+  await EventsService.getAllEvents().then(data => {
+    events.value = data
+  })
+})
 </script>
 
 <template>
