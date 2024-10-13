@@ -19,6 +19,15 @@ onMounted(async () => {
     events.value = data
   })
 })
+
+function toggleButtons(index) {
+  activeButton.value[index] = !activeButton.value[index]
+  Object.keys(activeButton.value).forEach(key => {
+    if (key !== index) {
+      activeButton.value[key] = false
+    }
+  })
+}
 </script>
 
 <template>
@@ -29,7 +38,7 @@ onMounted(async () => {
         v-for="(button, index) in activeButton"
         :key="index"
         :variant="button ? '' : 'secondary'"
-        @click="activeButton[index] = !activeButton[index]"
+        @click="toggleButtons(index)"
       >
         {{ index }}
       </Button>
