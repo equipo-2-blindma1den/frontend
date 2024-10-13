@@ -14,14 +14,18 @@
 </script>
 
 <template>
-  <Alert v-if="isVisible" class="absolute bottom-8 z-20 w-1/2 mx-auto left-1/2 transform -translate-x-1/2"   variant="destructive">
+    <Alert 
+        v-if="isVisible" 
+        class="absolute bottom-8 z-20 w-9/12 max-w-[25rem] mx-auto left-1/2 transform -translate-x-1/2"
+       :variant="variant"
+    >
     <AlertTitle>{{title}}</AlertTitle>
     <AlertDescription>{{message}}</AlertDescription>
-  </Alert>
+    </Alert>
 </template>
 
 <style>
-    h5, AlertTitle{
+    h5{
         margin: 0 !important;
     }
 </style>

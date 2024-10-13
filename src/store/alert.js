@@ -8,15 +8,14 @@ const state = reactive({
 });
 
 const showAlert = (message, title, variant = 'default') => {
+    if (state.isVisible) return; 
     state.message = message;
     state.title = title;
     state.isVisible = true;
     state.variant = variant;
-    
-    console.log('llega aqui?');
-
     setTimeout(() => {
         state.isVisible = false;
+        state.title = '';
         state.message = '';
     }, 5000);
 };
