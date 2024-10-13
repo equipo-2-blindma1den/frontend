@@ -15,5 +15,5 @@ import Card from "./components/Card.vue"
         <Card />
       </div>
     </Layout>
+    <router-view></router-view>
   </div>
-</template>
