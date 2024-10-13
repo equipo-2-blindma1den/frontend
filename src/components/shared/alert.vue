@@ -16,7 +16,7 @@
 <template>
     <Alert 
         v-if="isVisible" 
-        class="absolute bottom-8 z-20 w-9/12 max-w-[25rem] mx-auto left-1/2 transform -translate-x-1/2"
+        class="alert absolute bottom-8 z-20 w-9/12 max-w-[25rem] mx-auto left-1/2 transform -translate-x-1/2"
        :variant="variant"
     >
     <AlertTitle>{{title}}</AlertTitle>
@@ -25,6 +25,12 @@
 </template>
 
 <style>
+
+
+    .alert{
+        position: fixed;
+    }
+
     h5{
         margin: 0 !important;
     }

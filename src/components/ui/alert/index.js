@@ -9,9 +9,9 @@ export const alertVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-background text-foreground",
+        default: "bg-green text-white",
         destructive:
-          "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
+          "border-destructive/50 bg-destructive text-white dark:border-destructive [&>svg]:text-destructive",
       },
     },
     defaultVariants: {
