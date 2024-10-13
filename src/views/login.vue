@@ -49,7 +49,7 @@ const toggleRegister = () => {
 <template>
   <section class="background z-10">
     <div class="header">
-        <h1 class="text-4xl font-extrabold"> Voluntariados </h1>
+        <h1 class="text-4xl font-black"> Voluntariados </h1>
         <h3 class="text-sm text-center"> Tu tiempo, tu impacto. Haz el bien, elige dónde: conecta y transforma.</h3>
     </div>
     <Form ref="formRef">
@@ -122,7 +122,7 @@ const toggleRegister = () => {
         position: absolute;
         top: 0;
         backdrop-filter: blur(2px);
-        background: linear-gradient(to bottom, #000000ab 0%, rgb(0 0 0) 100%);
+        background: linear-gradient(to bottom, #000000ab 0, rgb(0 0 0) 80%, rgb(0 0 0) 100%);
         height: 100%;
         left: 0;
         width: 100%;
@@ -130,7 +130,7 @@ const toggleRegister = () => {
     }
     
     h1{
-        color: #c1b8b1;
+        color: #977b4b;
     }
     
     h3{
@@ -145,7 +145,7 @@ const toggleRegister = () => {
     }
     
     .btn--primary, .btn--primary:hover{
-        background: #977b4b;
+        background: #026060;
         color: #F0EFE6;
         
     }
