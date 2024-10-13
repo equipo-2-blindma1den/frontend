@@ -63,7 +63,7 @@
 
 <template>
   <section class="background z-10">
-    <div class="header">
+    <div class="headline">
         <h1 class="text-4xl font-black"> Voluntariados </h1>
         <h3 class="text-sm text-center"> Tu tiempo, tu impacto. Haz el bien, elige dónde: conecta y transforma.</h3>
     </div>
@@ -115,7 +115,7 @@
 
 <style>
 
-    .background, .header, .actions, Form{
+    .background, .headline, .actions, Form{
         display: flex;
         flex-direction: column;
         align-items: center;

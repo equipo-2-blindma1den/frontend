@@ -69,7 +69,12 @@
     })
 
     const onSubmit = handleSubmit(async (values) => {
-        await SessionService.update(values);
+        isLoading.value = true;
+        try {
+            await SessionService.update(values);
+        } finally {
+            isLoading.value = false; 
+        }
     });
 
 </script>

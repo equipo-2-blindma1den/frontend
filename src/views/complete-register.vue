@@ -53,8 +53,15 @@
     })
 
     const onSubmit = handleSubmit(async (values) => {
-        const currentUser = {...useSessionStore().state, ...values};
-        await SessionService.update(values);
+        isLoading.value = true;
+        try {
+            const currentUser = {...useSessionStore().state, ...values};
+            await SessionService.update(values);
+            router.push('/app');
+        } finally {
+            isLoading.value = false; 
+        }
+        
     });
 
 </script>
