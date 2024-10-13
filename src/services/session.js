@@ -60,22 +60,23 @@ const register = async ({username, password, city}) => {
 
 const update = async ({name, name2, lastname, lastname2, sex, username, city}) => {
     try {
+        const saveData = {
+            "id_usuario": sessionStore.state.idUser,
+            "nombre": name,
+            "segundo_nombre": name2,
+            "ciudad": city,
+            "apellido_p":lastname,
+            "apellido_m":lastname2,
+            "usuario":username,
+            "password":sessionStore.state.password,
+            "sexo_genero":sex
+        }
         const response = await fetch(`${GlobalVars.API_URL}updateUsuario`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                "id_usuario": sessionStore.state.idUser,
-                "nombre": name,
-                "segundo_nombre": name2,
-                "ciudad": city,
-                "apellido_p":lastname,
-                "apellido_m":lastname2,
-                "usuario":username,
-                "password":sessionStore.state.password,
-                "sexo_genero":sex
-            })
+            body: JSON.stringify(saveData)
         });
 
         const data = await response?.json(); 
@@ -86,7 +87,7 @@ const update = async ({name, name2, lastname, lastname2, sex, username, city}) =
         }
         
         console.log('Respuesta del servidor:', data);
-        sessionStore.save(data.data);
+        sessionStore.save(saveData);
         alertStore.showAlert('Tu información se actualizó correctamente.', '¡Genial!', 'default');
     } catch (error) {
         const message = error?.message || 'Hubo un error con el servidor, intenta más tarde.'
