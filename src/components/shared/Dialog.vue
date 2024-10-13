@@ -20,8 +20,8 @@ defineProps({
 
 <template>
   <Dialog>
-    <DialogTrigger>
-      <Button>Más información</Button>
+    <DialogTrigger class="mx-auto">
+      <Button class="bg-[#080808]">Más información</Button>
     </DialogTrigger>
     <DialogContent>
       <DialogHeader>
